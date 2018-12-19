@@ -1,3 +1,15 @@
 from django.db import models
 
-# Create your models here.
+class TodoList(models.Model):
+    """
+    This class defines the todo list model.
+
+    """
+    name = models.CharField(max_length=100, blank=False, unique=True)
+    description = models.CharField(max_length=200, blank=False)
+    done = models.BooleanField(default=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    
+
+    def __str__(self):
+        return "{}".format(self.name)
