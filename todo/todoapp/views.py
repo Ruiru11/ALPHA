@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 # Create your views here.
 from rest_framework import generics
@@ -18,6 +19,26 @@ class CreateView(generics.ListCreateAPIView):
         """Save the post data when creating a new Todolist item."""
         serializer.save()
 
-class UserCreate(generics.CreateAPIView): 
-    
+class UserCreate(generics.ListCreateAPIView):
+    """
+    Handles user POST and GET requests
+
+    """
+    queryset = User.objects.all()
     serializer_class = UserSerializer
+    
+
+    def perform_create(self, serializer):
+        """Save the post data when creating a new user."""
+        serializer.save()
+
+
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Handles PUT, GET and DELETE requests
+
+    """
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    

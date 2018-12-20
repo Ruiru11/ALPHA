@@ -25,7 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
         Serializers for the user fields
         """
         model = User
-        fields = ('username', 'email', 'password')
+        fields = ('id','username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def createvaliduser(self, validated_data):
