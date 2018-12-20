@@ -19,7 +19,9 @@ class CreateView(generics.ListCreateAPIView):
         serializer.save()
 
 class ToDoDetailsView(generics.RetrieveUpdateDestroyAPIView):
-    """GET, PUT and DELETE  existing Todolist"""
+    """
+    Class handles getting a single product, editing the product and deleting the product
+    """
 
     queryset = TodoList.objects.all()
     serializer_class = TodoListSerializer
