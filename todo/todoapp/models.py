@@ -1,5 +1,5 @@
-from django.db import models
-
+from django.db import model
+from django.contrib.auth.models import User
 class TodoList(models.Model):
     """
     This class defines the todo list model.
