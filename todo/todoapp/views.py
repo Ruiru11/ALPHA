@@ -42,3 +42,10 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     
+class ToDoDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Class handles getting a single product, editing the product and deleting the product
+    """
+
+    queryset = TodoList.objects.all()
+    serializer_class = TodoListSerializer
