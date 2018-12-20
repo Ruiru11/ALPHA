@@ -17,3 +17,9 @@ class CreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         """Save the post data when creating a new Todolist item."""
         serializer.save()
+
+class ToDoDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    """GET, PUT and DELETE  existing Todolist"""
+
+    queryset = TodoList.objects.all()
+    serializer_class = TodoListSerializer
