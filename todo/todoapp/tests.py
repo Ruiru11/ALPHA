@@ -12,7 +12,7 @@ class TestTodos(APITestCase):
         """
         self.factory = APIRequestFactory()
         self.view = views.TodoView.as_view()
-        self.uri = '/todos/'
+        self.uri = '/todolist/'
 
     def test_get_all_todos(self):
         """
