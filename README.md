@@ -43,6 +43,6 @@ Install all the requirements
 # Create a .env file and add the following llines.
 Configure with a preffered DB_NAME and DB_USER
 
-export DATABASE_NAME="todo"
-export DATABASE_USER ="dianaombati"
+export DATABASE_NAME="database"
+export DATABASE_USER ="postgres"
 export DATABASE_PASSWORD=""
