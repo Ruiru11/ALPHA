@@ -12,5 +12,5 @@ class TodoListSerializer(serializers.ModelSerializer):
     class Meta:
         """To serialize fields with the model fields."""
         model = TodoList
-        fields = ('id', 'name', 'description', 'done' 'date_created')
-        read_only_fields = ('date_created')
+        fields = ('id', 'name', 'description', 'done', 'date_created')
+        
