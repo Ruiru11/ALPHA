@@ -1,6 +1,7 @@
-venv/
+todoenv/
 .DS_STORE
 .env
 __pycache__/
 *.pyc
 .vscode/
+alpha/
