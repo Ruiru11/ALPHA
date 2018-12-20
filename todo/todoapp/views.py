@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import generics
-from .serializers import TodoListSerializer
-from .models import TodoList 
+from .serializers import TodoListSerializer, UserSerializer
+from .models import TodoList
 
 
 class CreateView(generics.ListCreateAPIView):
@@ -17,3 +17,7 @@ class CreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         """Save the post data when creating a new Todolist item."""
         serializer.save()
+
+class UserCreate(generics.CreateAPIView): 
+    
+    serializer_class = UserSerializer
