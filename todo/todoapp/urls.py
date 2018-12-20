@@ -7,7 +7,6 @@ urlpatterns = [
     url(r'^users/$', UserCreate.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/$', UserDetail.as_view()),
     url(r'^todolist/(?P<pk>[0-9]+)/$', ToDoDetailsView.as_view(), name="details"),
-}
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
