@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-
-# Create your views here.
 from rest_framework import generics
+from django.contrib.auth import authenticate
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+
 from .serializers import TodoListSerializer, UserSerializer
 from .models import TodoList
 
@@ -24,6 +27,9 @@ class UserCreate(generics.ListCreateAPIView):
     Handles user POST and GET requests
 
     """
+    authentication_classes = ()
+    permission_classes = ()
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
     
@@ -49,3 +55,29 @@ class ToDoDetailsView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = TodoList.objects.all()
     serializer_class = TodoListSerializer
+
+class LoginView(APIView):
+    """
+        This is the login endpoint class
+    """
+    permission_classes = ()
+
+    def post(self,  request,):
+        """
+            Login the user endpoint
+        """
+        username = request.data.get("username")
+        password = request.data.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            return Response(
+                {
+                    "token":user.auth_token.key
+                }
+            )
+        else:
+            return Response(
+                {
+                    "error":"User not found or wrong credentials"
+                }
+            )
