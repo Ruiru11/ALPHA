@@ -30,7 +30,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id','username', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
-    def createvaliduser(self, validated_data):
+    def create(self, validated_data):
         #validating user data
         user = User(
             email=validated_data['email'],
