@@ -78,6 +78,6 @@ class LoginView(APIView):
         else:
             return Response(
                 {
-                    "error":"User not found"
+                    "error":"User not found or wrong credentials"
                 }
             )
