@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-
-# Create your views here.
 from rest_framework import generics
+from django.contrib.auth import authenticate
+
 from .serializers import TodoListSerializer, UserSerializer
 from .models import TodoList
 
@@ -49,3 +49,9 @@ class ToDoDetailsView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = TodoList.objects.all()
     serializer_class = TodoListSerializer
+
+class LoginView(APIView):
+    """
+        This is the login endpoint class
+    """
+    
