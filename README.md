@@ -14,7 +14,7 @@ A ToDo list application is a list of errands and other tasks, that one needs or 
 # Endpoints/
 Method | EndPoint | Description | 
 -------|----------|---------------|
-POST| /todolist/signup | User Regisration|
+POST| /todolist/users | User Regisration|
 POST| /todolist/login | Login signed up user|
 POST| /todolist/lists | Create a list of items|
 GET| /todolist/lists | Fetch all items that are Created | 
@@ -26,7 +26,7 @@ DELETE| /todolist/list/int:listId | Delete a Record|
 # Installation
 Clone this Repository.
 ```
-    $ git clone https://github.com/Ruiru11/ALPHA.git
+    $ git clone https://github.com/Ruiru11/ALPHA.git 
 ```
 Create the virtual Environment
 ```
@@ -49,4 +49,7 @@ export DATABASE_USER ="postgres"<br>
 export DATABASE_PASSWORD=""
 
 Run the App<br>
-    python3 manage.py
+    `python3 manage.py`
+
+Test the application<br>
+    `python3 manage.py test`
